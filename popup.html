@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>語錄產生器</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="font/all.css" />
+    <link rel="stylesheet" href="css/all.css" />
+  </head>
+  <body>
+    <div class="container popup day">
+      <div class="row">
+        <div class="col-12 py-5 px-4">
+          <div class="d-flex align-items-center">
+            <h3 class="mr-3"><b>夜間模式</b></h3>
+            <div class="custom-control custom-switch custom-switch-lg mb-3">
+              <input type="checkbox" class="custom-control-input" id="mode" />
+              <label class="custom-control-label" for="mode"></label>
+            </div>
+          </div>
+          <h1 class="h3 py-2"><b>我的語錄</b></h1>
+          <table
+            class="table table-hover table-main pb-3 js-table-quotes"
+          ></table>
+          <div>
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-end pages"></ul>
+            </nav>
+          </div>
+          <div>
+            <div>
+              <div class="input-group mb-3 js-add-group d-none">
+                <input
+                  type="text"
+                  class="form-control js-text"
+                  class="w-100 py-2 my-2"
+                  placeholder=""
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-secondary js-add-text" type="button">
+                    送出
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-dark btn-lg w-100 js-add">
+              新增語錄<i class="fas fa-plus ml-3"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/bootstrap.bundle.js"></script>
+    <script src="scripts/execute.js"></script>
+  </body>
+</html>

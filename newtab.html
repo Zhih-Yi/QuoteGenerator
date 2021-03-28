@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>語錄產生器</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="font/all.css" />
+    <link rel="stylesheet" href="css/all.css" />
+  </head>
+  <body>
+    <div class="day max-vw-100 min-vh-100 main">
+      <div class="d-flex">
+        <div class="quoteMark">“</div>
+        <div class="quoteText py-5 px-5"></div>
+        <div class="d-none py-5 px-5 addQuote">
+          <textarea
+            name="Text1"
+            cols="40"
+            rows="2"
+            placeholder="新增語錄"
+          ></textarea>
+          <div class="text-center">
+            <button class="btn btn-dark btn-lg btn-add">新增</button>
+            <button class="btn btn-secondary btn-lg btn-cancelAdd">取消</button>
+          </div>
+        </div>
+        <div class="bg-cover js-quoteBg">
+          <a href="#" class="menu-btn"> <i class="fas fa-bars fa-3x"></i></a>
+        </div>
+      </div>
+      <div class="aside container">
+        <div class="row quote-setting">
+          <div class="col py-5 px-5">
+            <div class="d-flex justify-content-between">
+              <a href="#" class="js-menu-btn-fold"
+                ><i class="fas fa-arrow-right fa-3x"></i
+              ></a>
+              <button class="btn btn-dark btn-lg btn-bg">設定背景</button>
+            </div>
+            <div class="d-flex align-items-center py-5">
+              <h3 class="mr-3"><b>夜間模式</b></h3>
+              <div class="custom-control custom-switch custom-switch-lg mb-3">
+                <input type="checkbox" class="custom-control-input" id="mode" />
+                <label class="custom-control-label" for="mode"></label>
+              </div>
+            </div>
+            <h1 class="h3 py-2"><b>我的語錄</b></h1>
+            <table
+              class="table table-hover table-main pb-3 js-table-quotes"
+            ></table>
+            <div>
+              <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-end pages"></ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="row d-none bg-setting">
+          <div class="col py-5 px-5">
+            <div class="d-flex justify-content-between">
+              <a href="#" class="js-menu-btn-fold"
+                ><i class="fas fa-arrow-right fa-3x"></i
+              ></a>
+              <button class="btn btn-dark btn-lg btn-quote">設定語錄</button>
+            </div>
+            <div class="accordion py-5" id="accordionExample">
+              <div class="card border-0">
+                <div class="card-header">
+                  <h2 class="mb-0">
+                    <button
+                      class="btn btn-block text-left js-btn-fold"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <h4>日間背景 <i class="fas fa-chevron-up arrow"></i></h4>
+                    </button>
+                  </h2>
+                </div>
+
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body px-0 pt-0">
+                    <div class="layer-wrapper">
+                      <div
+                        class="image-layer image-layer-color layer-day d-flex align-items-center justify-content-center"
+                      >
+                        <h4 class="text-white layer-title">點擊上傳</h4>
+                      </div>
+                      <img
+                        src="images/bg-default-day.jpg"
+                        alt=""
+                        class="img-cover"
+                      />
+                    </div>
+                    <input
+                      type="file"
+                      class="d-none js-fileinput js-fileinput-day"
+                      accept="image/*"
+                    />
+                    <div class="pt-3 d-flex justify-content-center">
+                      <button class="btn btn-dark btn-lg mr-3 js-saveimg-day">
+                        儲存</button
+                      ><button
+                        class="btn btn-lg btn-secondary js-btn-cancel-day"
+                      >
+                        取消
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card border-0">
+                <div class="card-header">
+                  <h2 class="mb-0">
+                    <button
+                      class="btn btn-block text-left collapsed js-btn-fold"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      <h4>
+                        夜間背景 <i class="fas fa-chevron-down arrow"></i>
+                      </h4>
+                    </button>
+                  </h2>
+                </div>
+                <div
+                  id="collapseTwo"
+                  class="collapse"
+                  aria-labelledby="headingTwo"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    <div class="layer-wrapper">
+                      <div
+                        class="image-layer image-layer-color layer-night d-flex align-items-center justify-content-center"
+                      >
+                        <h4 class="text-white layer-title">點擊上傳</h4>
+                      </div>
+                      <img
+                        src="images/bg-default-night.jpg"
+                        alt=""
+                        class="img-cover"
+                      />
+                    </div>
+                    <input
+                      type="file"
+                      class="d-none js-fileinput js-fileinput-night"
+                      accept="image/*"
+                    />
+                    <div class="pt-3 d-flex justify-content-center">
+                      <button class="btn btn-dark btn-lg mr-3 js-saveimg-night">
+                        儲存</button
+                      ><button
+                        class="btn btn-lg btn-secondary js-btn-cancel-night"
+                      >
+                        取消
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-dark btn-block btn-lg"
+              data-toggle="modal"
+              data-target="#imageModal"
+            >
+              查看圖片
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="imageModal"
+      tabindex="-1"
+      aria-labelledby="imageModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl"
+      >
+        <div class="modal-content">
+          <div class="modal-body">
+            <ul class="nav nav-tabs" id="Tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link active"
+                  id="day-tab"
+                  data-toggle="tab"
+                  href="#day"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  ><h4>日間模式圖片</h4></a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="night-tab"
+                  data-toggle="tab"
+                  href="#night"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                  ><h4>夜間模式圖片</h4></a
+                >
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="day"
+                role="tabpanel"
+                aria-labelledby="day-tab"
+              >
+                <div class="imagesBox-day d-flex flex-wrap"></div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="night"
+                role="tabpanel"
+                aria-labelledby="night-tab"
+              >
+                <div class="imagesBox-night d-flex flex-wrap"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg"
+              data-dismiss="modal"
+            >
+              取消
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-lg js-btn-image-delete"
+            >
+              刪除
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/bootstrap.bundle.js"></script>
+    <script src="scripts/newTab.js"></script>
+  </body>
+</html>
