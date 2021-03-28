@@ -307,7 +307,7 @@ data.forEach(value => {
 str+=`<tr><td><span>${value.Quote}</span> <input type="text" data-num="${value.Id}" class="d-none form-control js-input-update"/></td>
 <td class="text-right">
 <a href="#" class=" mr-2 js-update" data-num="${value.Id}"><i class="fas fa-pen"></i></a>
-<a href="#" class="js-delete" data-num="${value.Id}"><i class="fas fa-trash"></i></a>
+<a href="#" class="mr-2 js-delete" data-num="${value.Id}"><i class="fas fa-trash"></i></a>
 </td></tr>`;
 });
 
