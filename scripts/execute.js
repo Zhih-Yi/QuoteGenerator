@@ -40,7 +40,12 @@ function getQuotes(){
   
 chrome.storage.sync.get({quotes: []},function(items) {
     quotesArr=items.quotes||[];
-    
+    if(quotesArr.length===0){
+      let defaultQ="人生中，你會經歷很多艱難的時刻，但這也會讓你意識到以前不曾在意過的好時光。";
+      let id = Math.floor(Date.now());
+      let defaultQuote={Quote:defaultQ,Id:id};
+      quotesArr.push(defaultQuote);
+    } 
    pagination(quotesArr,nowPage);
    Display(pageData);
 

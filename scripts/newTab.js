@@ -77,7 +77,7 @@ $('.btn-add').on('click',function(){
     $(this).parent().parent().find('textarea').val('');
     $('.addQuote').addClass('d-none');
     $('.quoteText').removeClass('d-none');
-
+    GetQuotes();
 });
 //設定按鈕背景 前往設定背景
 $('.btn-bg').on('click',function(){
@@ -189,7 +189,13 @@ $(this).parent().parent().find('.layer-title').removeClass('d-none');
 //取得語錄
 function GetQuotes(){
 chrome.storage.sync.get({quotes: []},function(items) {
-quotesArr=items.quotes||[];       
+quotesArr=items.quotes||[];
+if(quotesArr.length===0){
+    let defaultQ="人生中，你會經歷很多艱難的時刻，但這也會讓你意識到以前不曾在意過的好時光。";
+    let id = Math.floor(Date.now());
+    let defaultQuote={Quote:defaultQ,Id:id};
+    quotesArr.push(defaultQuote);
+  }       
 pagination(quotesArr,nowPage);
 Display(pageData);    
 }); 
@@ -218,7 +224,7 @@ quoteCurrent=quotesArr[quoteIndex];
 //設定圖片
 $('.js-quoteBg').css('background-image',`url('${imageCurrent}')`);
 //設定文字
-$('.quoteText').html(`<p>${quoteCurrent.Quote}</p>`);
+$('.quoteText').html(`<p>${quoteCurrent?.Quote}</p>`);
 }
 
 /*取得隨機文字圖片 */
